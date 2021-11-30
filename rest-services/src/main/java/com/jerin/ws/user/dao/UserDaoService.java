@@ -17,9 +17,9 @@ public class UserDaoService {
 
 	static {
 		users = new ArrayList<>();
-		users.add(new User(1, "Jerin", LocalDate.of(1989, Month.FEBRUARY, 1)));
-		users.add(new User(2, "Jeffin", LocalDate.of(1993, Month.DECEMBER, 9)));
-		users.add(new User(3, "Jaisy", LocalDate.of(1985, Month.DECEMBER, 28)));
+		users.add(new User(1, "Jerin", LocalDate.of(1989, Month.FEBRUARY, 1), null));
+		users.add(new User(2, "Jeffin", LocalDate.of(1993, Month.DECEMBER, 9), null));
+		users.add(new User(3, "Jaisy", LocalDate.of(1985, Month.DECEMBER, 28), null));
 	}
 
 	public List<User> findAll() {
