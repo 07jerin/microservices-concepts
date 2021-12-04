@@ -35,7 +35,7 @@ Now we use spring cloud gateway for this, earlier we used to use Ribbon
 			> http://localhost:8765/currency-exchange/from/USD/to/INR
 	
 	
-```
+```java
 @Configuration
 public class ApiGatewayConfiguration {
 
@@ -69,7 +69,7 @@ public class ApiGatewayConfiguration {
 1. Create class implementing Global filter
 2. override the filter method
 
-```
+```java
 @Component
 public class LogginFilter implements GlobalFilter {
 
