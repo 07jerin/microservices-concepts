@@ -64,7 +64,7 @@ public class ApiGatewayConfiguration {
 
 ```
 	
-## Global Filtering##
+## Global Filtering ##
 
 1. Create class implementing Global filter
 2. override the filter method
