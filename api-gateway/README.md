@@ -68,7 +68,7 @@ public class ApiGatewayConfiguration {
 
 1. Create class implementing Global filter
 2. override the filter method
-3. 
+
 ```
 @Component
 public class LogginFilter implements GlobalFilter {
