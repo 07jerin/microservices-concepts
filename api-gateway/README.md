@@ -2,7 +2,7 @@ To handle common  features for all microservices
 Now we use spring cloud gateway for this, earlier we used to use Ribbon
 
 
-## Steps
+## Steps ##
 1. Include the starter gateway and eureka client and create the api-gateway service
 2. Register the service to eureka
 3. Include the following in application properties, to enable the transfer to the service via API gateway
@@ -15,7 +15,7 @@ Now we use spring cloud gateway for this, earlier we used to use Ribbon
 6. Make the URL even better by using re rerouting
 
 
-## Build Custom Routes
+## Build Custom Routes ##
 1. Create a custom configuration class
 2. Create RouteLocator bean and Add filters and redirection URL
 3. We can use the above to make our URLs via gateway better 
@@ -35,7 +35,7 @@ Now we use spring cloud gateway for this, earlier we used to use Ribbon
 			> http://localhost:8765/currency-exchange/from/USD/to/INR
 	
 	
-```
+```java
 @Configuration
 public class ApiGatewayConfiguration {
 
@@ -64,4 +64,24 @@ public class ApiGatewayConfiguration {
 
 ```
 	
+## Global Filtering ##
+
+1. Create class implementing Global filter
+2. override the filter method
+
+```java
+@Component
+public class LogginFilter implements GlobalFilter {
+
+	private Logger logger = LoggerFactory.getLogger(LogginFilter.class);
+
+	@Override
+	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+		logger.info("path of request recieved -> {}", exchange.getRequest()
+				.getPath());
+		return chain.filter(exchange);
+	}
+
+}
+```
 
