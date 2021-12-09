@@ -25,7 +25,11 @@ public class CurrencyExchangeController {
 		logger.info("getCurrencyExchange called with {} to {}", from, to);
 		CurrencyExchange exchange = repository.findByFromAndTo(from, to);
 		String port = environment.getProperty("local.server.port");
-		exchange.setEnvironment(port);
+
+		String host = environment.getProperty("HOSTNAME");
+		String version = "v12";
+
+		exchange.setEnvironment(port + " " + version + " " + host);
 		return exchange;
 	}
 }
